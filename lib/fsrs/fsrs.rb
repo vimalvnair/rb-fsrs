@@ -185,7 +185,7 @@ module Fsrs
 
       return nil unless @state == State::REVIEW
 
-      elapsed_days = [0, (now - @last_review).to_i].max
+      elapsed_days = [0, (now.to_date - @last_review.to_date).to_i].max
       (1 + (factor * elapsed_days / @stability))**decay
     end
 
